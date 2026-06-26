@@ -118,6 +118,13 @@
   # Enable programs
   programs.firefox.enable = true;
   programs.zsh.enable = true;
+  programs.steam = {
+    enable = true;
+    #remotePlay.openFirewall = true; --for remote play to work
+    localNetworkGameTransfers.openFirewall = true; # local network game transfers
+  };
+
+  hardware.graphics.enable32Bit = true; # 32bit for steam games
 
   # filesystem stuff
 
