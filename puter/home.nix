@@ -28,10 +28,10 @@
 	# go through everything in dotfiles and put into .config
 	home.file = builtins.listToAttrs (map( name: {
 		name = ".config/${name}";
-		value.source =
-      if lib.hasPrefix "nvim" name
-      then config.lib.file.mkOutOfStoreSymlink (config.home.homeDirectory + "/nixos/puter/dotfiles/${name}")
-      else ./dotfiles + "/${name}";
+		value.source =      		
+    if lib.hasPrefix "nvim" name
+   		  then config.lib.file.mkOutOfStoreSymlink (config.home.homeDirectory + "/nixos/puter/dotfiles/${name}")
+    		  else ./dotfiles + "/${name}";
 	}) (builtins.attrNames (builtins.readDir ./dotfiles)));
 
 	home.packages = with pkgs; [
