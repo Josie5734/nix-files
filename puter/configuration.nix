@@ -124,7 +124,12 @@
     localNetworkGameTransfers.openFirewall = true; # local network game transfers
   };
 
-  hardware.graphics.enable32Bit = true; # 32bit for steam games
+  hardware.graphics = {
+    enable = true; # explicit declaration, on by default
+    enable32Bit = true; # 32bit for steam games
+  };
+
+  boot.initrd.kernelModules = [ "amdgpu" ]; # make sure amdgpu drivers are installed
 
   # filesystem stuff
 

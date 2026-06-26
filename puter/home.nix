@@ -15,7 +15,7 @@
 			nvim-old = "NVIM_APPNAME=nvim-old nvim";
       
       # nix
-      rebuild = "sudo nixos-rebuild switch --flake ~/nixos";
+      rebuild = "git add . && sudo nixos-rebuild switch --flake ~/nixos";
 		};
 		oh-my-zsh = {
 			enable = true;
