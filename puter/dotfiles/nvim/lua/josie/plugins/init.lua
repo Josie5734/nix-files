@@ -14,15 +14,12 @@ local plugins = { --name is used as the filename for that plugin
 
 	--text
 	{ src = gh("folke/todo-comments.nvim"), name = "todo-comments" }, --todo comment highlights
-	{ src = gh("windwp/nvim-autopairs"), name = "autopairs" }, --auto pair on ({[ etc
 
 	--utility
 	{ src = gh("rmagatti/auto-session"), name = "auto-session" },
 	{ src = gh("folke/which-key.nvim"), name = "whichkey" },
-	{ src = gh("folke/snacks.nvim"), name = "snacks" }, --snacks, big utility plugin group
-
-	--snacks.nvim - potentially replaces a couple plugins, will consider if i use enough of the plugins in it
-	--would use: picker(ff find), explorer(file explorer), indent, scratch?, terminal,
+	{ src = gh("folke/snacks.nvim"), name = "snacks" }, --snacks. using { explorer, indenter, picker, scratchpad, terminal }
+	{ src = gh("nvim-mini/mini.nvim"), name = "mini" }, --mini. using {move,}
 	--mini.nvim - also a big library with a bunch of stuff
 	--would use: surround, pick?(alternative to telescope), pairs(replace autopairs), snippets(for cmp)
 	--live preview
@@ -41,6 +38,6 @@ local plugins = { --name is used as the filename for that plugin
 vim.pack.add(plugins)
 
 --loopthrough plugin table and call the file for each plugin using its name value
-for i, v in ipairs(plugins) do
+for _, v in ipairs(plugins) do
 	require("josie.plugins." .. v.name)
 end
