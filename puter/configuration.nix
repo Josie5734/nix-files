@@ -124,6 +124,9 @@
     localNetworkGameTransfers.openFirewall = true; # local network game transfers
   };
 
+  # Enable services
+  services.mullvad-vpn.enable = true;
+
   hardware.graphics = {
     enable = true; # explicit declaration, on by default
     enable32Bit = true; # 32bit for steam games
