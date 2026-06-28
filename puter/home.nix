@@ -25,8 +25,10 @@
 	home.packages = with pkgs; [];
 
 	# import modules for each program
+  # comment out to exclude them
 	imports = [
 		./modules/neovim/neovim.nix
 		./modules/kitty/kitty.nix
+    ./modules/pico8/pico8.nix
 	];
 }

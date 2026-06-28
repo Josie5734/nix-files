@@ -22,6 +22,7 @@
 						home-manager.useUserPackages = true;
 						home-manager.extraSpecialArgs = { inherit inputs; };
 						home-manager.users.josie = ./puter/home.nix;
+            home-manager.backupFileExtension = "backup";
 					}
 				];
 		};
