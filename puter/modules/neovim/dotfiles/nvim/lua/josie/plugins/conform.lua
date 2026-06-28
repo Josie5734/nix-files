@@ -4,6 +4,12 @@ conform.setup({
 	formatters_by_ft = { --list of formatters to use and on which filestypes
 		lua = { "stylua" },
 	},
+	formatters = { --custom stuff for each formatter
+		stylua = {
+			--point to a stylua.toml file in .config/nvim/ for global style rules
+			prepend_args = { "--config-path", vim.fn.stdpath("config") .. "/stylua.toml" },
+		},
+	},
 	format_on_save = {
 		lsp_fallback = true,
 		async = false,

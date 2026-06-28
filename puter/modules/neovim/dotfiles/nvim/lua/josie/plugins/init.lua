@@ -1,7 +1,5 @@
 --shorten the github url for plugin src
-local gh = function(x)
-	return "https://github.com/" .. x
-end
+local gh = function(x) return "https://github.com/" .. x end
 
 --table of all plugins, as would be given to vim.pack.add()
 local plugins = { --name is used as the filename for that plugin
