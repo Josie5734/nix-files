@@ -10,12 +10,18 @@ keymap.set("n", "<leader>ww", ":w<cr>", { desc = "Save" })
 keymap.set("n", "<leader>qq", ":q<cr>", { desc = "Quit" })
 keymap.set("n", "<leader>xx", ":x<cr>", { desc = "Save and Quit" })
 
---navigation
-keymap.set("n", ";", "<S-:>", { desc = "Command Line" })
-
 --cool number increment/decrement
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment Number" })
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement Number" })
+
+--command shortcut
+keymap.set("n", ";", "<S-:>", { desc = "Command Line" })
+
+--move between splits
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to split left" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to split right" })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to split up" })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to split down" })
 
 --window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split Window Vertically" })
@@ -31,5 +37,3 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 
 --terminal mode exit
 keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal Mode" })
-
-
