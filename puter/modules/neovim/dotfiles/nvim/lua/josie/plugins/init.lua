@@ -1,4 +1,4 @@
---short the url for plugin src
+--shorten the github url for plugin src
 local gh = function(x)
 	return "https://github.com/" .. x
 end
@@ -9,8 +9,8 @@ local plugins = { --name is used as the filename for that plugin
 	{ src = gh("catppuccin/nvim"), name = "catppuccin" }, --colorscheme
 	{ src = gh("nvim-tree/nvim-web-devicons"), name = "devicons" }, --icons, dependency for most stuff
 	{ src = gh("akinsho/bufferline.nvim"), name = "bufferline" }, --tab bar
-
 	{ src = gh("nvim-lualine/lualine.nvim"), name = "lualine" }, --status bar at the bottom
+	{ src = gh("MeanderingProgrammer/render-markdown.nvim"), name = "render-markdown" }, --in-buffer markdown renderer
 
 	--text
 	{ src = gh("folke/todo-comments.nvim"), name = "todo-comments" }, --todo comment highlights

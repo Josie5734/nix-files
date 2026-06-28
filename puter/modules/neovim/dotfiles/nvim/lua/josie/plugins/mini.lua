@@ -1,5 +1,8 @@
 --mini.nvim
 
+--icons
+require("mini.icons").setup() --icon set
+
 --text editing
 require("mini.move").setup() --move selections in any directions
 require("mini.pairs").setup() --pairs for brackets and stuff
