@@ -9,7 +9,7 @@
 
 	home.shellAliases = {
 		# nix
-		rebuild = "cd ~/nixos && git add . && sudo nixos-rebuild switch --flake ~/nixos";
+		rebuild = "cd ~/nixos/puter && git add . && sudo nixos-rebuild switch --flake ~/nixos/puter";
 	};
 
 	# enable zsh with oh-my-zsh
