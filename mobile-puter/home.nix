@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, hostname, ... }:
 
 {
 	home.username = "josie";
@@ -9,7 +9,7 @@
 
 	home.shellAliases = {
 		# nix
-		rebuild = "cd ~/nixos/mobile-puter && git add . && sudo nixos-rebuild switch --flake ~/nixos/mobile-puter";
+		rebuild = "cd ~/nixos/${hostname} && git add . && sudo nixos-rebuild switch --flake ~/nixos/${hostname}";
 	};
 
 	# enable zsh with oh-my-zsh

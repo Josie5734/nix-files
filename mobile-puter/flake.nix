@@ -13,21 +13,25 @@
 		modules.flake = false; # not a flake, just files
 	};
 
-	outputs = {nixpkgs, home-manager, ...} @ inputs: {
-		nixosConfigurations.mobile-puter = nixpkgs.lib.nixosSystem {
-				system = "x86_64-linux";
-				modules = [
-					./configuration.nix
-					home-manager.nixosModules.home-manager
-					{
-						home-manager.useGlobalPkgs = true;
-						home-manager.useUserPackages = true;
-						home-manager.extraSpecialArgs = { inherit inputs; };
-						home-manager.users.josie = ./home.nix;
-            home-manager.backupFileExtension = "backup";
-					}
-				];
-		};
-	};
+	outputs = {nixpkgs, home-manager, ...} @ inputs: 
+    let 
+      hostname = "mobile-puter";
+    in {
+      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs hostname; };
+          modules = [
+            ./configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs hostname; };
+              home-manager.users.josie = ./home.nix;
+              home-manager.backupFileExtension = "backup";
+            }
+          ];
+      };
+    };
 }
 
