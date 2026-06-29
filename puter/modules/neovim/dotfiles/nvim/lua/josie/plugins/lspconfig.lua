@@ -1,7 +1,7 @@
 --lspconfig
 local servers = { --list of lsp servers to use - servers are installed manually through nix
 	"lua_ls",
-	"basedpyright",
+	"pyright",
 }
 for _, server in ipairs(servers) do --go through list of servers and enable
 	vim.lsp.enable(server)
@@ -18,10 +18,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.lsp.config("lua_ls", { --lua ls config
+--Configs
+
+--checks for library of pico8 definitions, returns lua_ls config options for pico8 projects
+local pico8 = require("josie.plugins.pico8")
+
+--lua ls
+vim.lsp.config("lua_ls", {
 	settings = {
-		Lua = { --makes "vim" not show as an error in nvim config files
+		Lua = {
 			diagnostics = { globals = { "vim" } },
 		},
 	},
+	root_dir = pico8.find_root_dir, --find root dir of .p8 files
+	on_init = pico8.on_init, --sets a bunch of rules if pico8 definitions exist, else does nothing
 })

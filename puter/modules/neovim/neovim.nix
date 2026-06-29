@@ -16,6 +16,7 @@
 
 		# lsps
 		lua-language-server # lua
+    vscode-extensions.pollywoggames.pico8-ls # pico-8
     pyright # python
 
 		# formatters
