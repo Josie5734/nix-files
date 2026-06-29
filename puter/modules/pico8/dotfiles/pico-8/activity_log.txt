@@ -1,7 +1,0 @@
-
-2026-06-27 22:51:51 /home/josie/.lexaloffle/pico-8/carts/untitled.p8
- iic
-2026-06-27 22:52:38 /home/josie/.lexaloffle/pico-8/carts/untitled.p8
- i......i.........
-2026-06-27 22:55:16 /home/josie/.lexaloffle/pico-8/carts/untitled.p8
- 

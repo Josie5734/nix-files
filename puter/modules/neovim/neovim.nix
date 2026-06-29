@@ -15,10 +15,12 @@
 		fd
 
 		# lsps
-		lua-language-server
+		lua-language-server # lua
+    pyright # python
 
 		# formatters
-		stylua
+		stylua # lua
+    ruff # python
 	];
 
 	# look at all config folders in /neovim/dotfiles and symlink them to ~/.config

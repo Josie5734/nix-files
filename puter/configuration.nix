@@ -112,7 +112,7 @@
 
     # extra stuff
     fastfetch
-  #  wget
+    python3
   ];
 
   # Enable programs

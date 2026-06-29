@@ -22,10 +22,8 @@ in
     categories = [ "Game" ];
   };
 
-	# look at all config folders in /${module_name}/dotfiles and symlink them to ~/.lexaloffle
-	home.file = builtins.listToAttrs (map( name: {
-		name = ".lexaloffle/${name}";
-		value.source = ./dotfiles + "/${name}";
-
-	}) (builtins.attrNames (builtins.readDir ./dotfiles)));
+  # symlink config.txt into .lexaloffle/pico-8 from this modules dotfiles
+  home.file = {
+    ".lexaloffle/pico-8/config.txt".source = ./dotfiles/config.txt;
+  };
 }
