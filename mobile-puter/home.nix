@@ -9,7 +9,7 @@
 
 	home.shellAliases = {
 		# nix
-		rebuild = "cd ~/nixos/${hostname} && git add . && sudo nixos-rebuild switch --flake ~/nixos/${hostname}";
+		rebuild = "cd ~/nixos && git add . && sudo nixos-rebuild switch --flake ~/nixos/${hostname}";
 	};
 
 	# enable zsh with oh-my-zsh
@@ -29,6 +29,7 @@
 	imports = [
 		"${inputs.modules}/neovim/neovim.nix"
 		"${inputs.modules}/kitty/kitty.nix"
+    "${inputs.modules}/firefox/firefox.nix"
 		# "${inputs.modules}/pico8/pico8.nix"
 	];
 }
