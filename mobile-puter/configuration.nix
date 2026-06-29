@@ -19,6 +19,11 @@
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
 
+  # enable bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true; # power adapter on startup
+  services.blueman.enable = true; # install and enable blueman bluetooth manager
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 
