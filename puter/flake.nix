@@ -2,13 +2,15 @@
 	#description
 	description = "NixOS config for main PC";
 
-	# input packages: nixpkgs stable and unstable, home-manager
+	# input packages: nixpkgs stable, home-manager, the modules from in nixos/modules
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
 		home-manager = {
 			url = "github:nix-community/home-manager/release-26.05";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		modules.url = "path:../modules";
+		modules.flake = false; # not a flake, just files
 	};
 
 	outputs = {nixpkgs, home-manager, ...} @ inputs: {

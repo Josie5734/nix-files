@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
 	home.username = "josie";
@@ -27,8 +27,8 @@
 	# import modules for each program
   # comment out to exclude them
 	imports = [
-		./modules/neovim/neovim.nix
-		./modules/kitty/kitty.nix
-    ./modules/pico8/pico8.nix
+		"${inputs.modules}/neovim/neovim.nix"
+		"${inputs.modules}/kitty/kitty.nix"
+		"${inputs.modules}/pico8/pico8.nix"
 	];
 }

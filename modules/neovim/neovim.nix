@@ -28,7 +28,7 @@
 	# uses mkOutOfStoreSymlink so the files can be updated without rebuilding
 	home.file = builtins.listToAttrs (map( name: {
 		name = ".config/${name}";
-		value.source = config.lib.file.mkOutOfStoreSymlink (config.home.homeDirectory + "/nixos/puter/modules/neovim/dotfiles/${name}");
+		value.source = config.lib.file.mkOutOfStoreSymlink (config.home.homeDirectory + "/nixos/modules/neovim/dotfiles/${name}");
 
 	}) (builtins.attrNames (builtins.readDir ./dotfiles)));
 }

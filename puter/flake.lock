@@ -21,6 +21,18 @@
         "type": "github"
       }
     },
+    "modules": {
+      "flake": false,
+      "locked": {
+        "path": "../modules",
+        "type": "path"
+      },
+      "original": {
+        "path": "../modules",
+        "type": "path"
+      },
+      "parent": []
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1782233679,
@@ -40,6 +52,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "modules": "modules",
         "nixpkgs": "nixpkgs"
       }
     }
