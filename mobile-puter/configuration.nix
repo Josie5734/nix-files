@@ -43,8 +43,6 @@
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.xfce.enable = true;
 
-  
-
   # Configure keymap in X11
   services.xserver.xkb.layout = "gb";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -78,15 +76,26 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
+    # base
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git 
     kitty
     keepassxc
+
+    # for thunar/xfce extras
+    xarchiver
+    thunar-archive-plugin
   ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  # Automatic garbage collection for old builds
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
