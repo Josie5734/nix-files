@@ -6,7 +6,7 @@
 local M = {}
 
 --path to the definitions library folder
-local pico8_defs_path = "/home/josie/nixos/puter/modules/neovim/pico8/library"
+local pico8_defs_path = "/home/josie/nixos/modules/neovim/pico8/library"
 
 --check if the library folder exists
 local function does_library_exist()
