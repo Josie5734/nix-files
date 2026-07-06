@@ -30,6 +30,7 @@
 
     # other/general
     vlc
+    keepassxc
     qbittorrent
     pnpm
     nodejs

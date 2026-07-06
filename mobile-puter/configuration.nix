@@ -74,9 +74,10 @@
     shell = pkgs.zsh;
   };
 
-  programs.zsh.enable = true;
-  services.mullvad-vpn.enable = true;
-  programs.steam = {
+  # other programs
+  programs.zsh.enable = true; # zsh shell
+  services.mullvad-vpn.enable = true; # mullvad vpn (cli)
+  programs.steam = { # steam
     enable = true;
     localNetworkGameTransfers.openFirewall = true;
   };
@@ -88,7 +89,6 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git 
     kitty
-    keepassxc
   ];
 
   # Allow unfree packages
