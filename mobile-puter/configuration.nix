@@ -14,6 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # opengl/mesa acceleration
+  hardware.graphics.enable = true;
+
   networking.hostName = hostname; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
@@ -72,6 +75,11 @@
   };
 
   programs.zsh.enable = true;
+  services.mullvad-vpn.enable = true;
+  programs.steam = {
+    enable = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -81,10 +89,6 @@
     git 
     kitty
     keepassxc
-
-    # for thunar/xfce extras
-    xarchiver
-    thunar-archive-plugin
   ];
 
   # Allow unfree packages

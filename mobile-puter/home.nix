@@ -22,7 +22,19 @@
 		};
 	};
 
-	home.packages = with pkgs; [];
+	home.packages = with pkgs; [
+    # xfce/thunar extras
+    xfce4-clipman-plugin
+    xarchiver
+    thunar-archive-plugin
+
+    # other/general
+    vlc
+    qbittorrent
+    pnpm
+    nodejs
+    steam-run
+  ];
 
 	# import modules for each program
   # comment out to exclude them
