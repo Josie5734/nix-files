@@ -22,7 +22,9 @@
 		};
 	};
 
-	home.packages = with pkgs; [];
+	home.packages = with pkgs; [
+    homebank # finances
+	];
 
 	# import modules for each program
   # comment out to exclude them

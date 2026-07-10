@@ -113,6 +113,7 @@
     # extra stuff
     fastfetch
     python3
+    mullvad-vpn
   ];
 
   # Enable programs
