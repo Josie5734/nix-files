@@ -63,16 +63,31 @@ end
 --find a root marker for the project using the directory containing the .p8
 --so the lsp uses the same client for the whole project
 M.find_root_dir = function(bufnr, on_dir)
-	local fname = vim.api.nvim_buf_get_name(bufnr)
-	local found = vim.fs.find(
-		function(name) return name:match("%.p8$") ~= nil end,
-		{ upward = true, path = vim.fs.dirname(fname) }
-	)
-	if #found > 0 then
-		on_dir(vim.fs.dirname(found[1]))
-	else
-		on_dir(vim.fs.dirname(fname)) -- fallback: file's own directory
+local fname = vim.api.nvim_buf_get_name(bufnr)
+local dir = vim.fs.dirname(fname)
+
+--first, look for a .p8 file upward (pico8 project)
+local found = vim.fs.find(
+	function(name) return name:match("%.p8$") ~= nil end,
+						  { upward = true, path = dir }
+)
+if #found > 0 then
+	on_dir(vim.fs.dirname(found[1]))
+		return
 	end
+
+	--not a pico8 project: fall back to normal project markers
+	local marker = vim.fs.find(
+		{ ".luarc.json", ".git" },
+		{ upward = true, path = dir }
+	)
+	if #marker > 0 then
+		on_dir(vim.fs.dirname(marker[1]))
+		return
+	end
+
+	--last resort: the file's own directory
+	on_dir(dir)
 end
 
 return M

@@ -33,5 +33,6 @@
 		"${inputs.modules}/kitty/kitty.nix"
     "${inputs.modules}/firefox/firefox.nix"
 		"${inputs.modules}/pico8/pico8.nix"
+    "${inputs.modules}/love/love.nix"
 	];
 }
