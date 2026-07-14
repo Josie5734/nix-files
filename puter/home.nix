@@ -20,6 +20,10 @@
 			theme = "robbyrussell";
 			plugins = [ "git" ];
 		};
+    # enable direnv
+    initContent = ''
+      eval "$(direnv hook zsh)"
+    '';
 	};
 
 	home.packages = with pkgs; [
