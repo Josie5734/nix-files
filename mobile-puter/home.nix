@@ -20,6 +20,10 @@
 			theme = "robbyrussell";
 			plugins = [ "git" ];
 		};
+    # enable direnv
+    initContent = ''
+      eval "$(direnv hook zsh)"
+    '';
 	};
 
 	home.packages = with pkgs; [
@@ -35,6 +39,8 @@
     pnpm
     nodejs
     steam-run
+    vscode
+    zed-editor
   ];
 
 	# import modules for each program
