@@ -2,6 +2,7 @@
 local servers = { --list of lsp servers to use - servers are installed manually through nix
 	"lua_ls",
 	"pyright",
+	"clangd",
 }
 for _, server in ipairs(servers) do --go through list of servers and enable
 	vim.lsp.enable(server)

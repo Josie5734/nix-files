@@ -4,6 +4,7 @@ conform.setup({
 	formatters_by_ft = { --list of formatters to use and on which filestypes
 		lua = { "stylua" },
 		python = { "ruff" },
+		cpp = { "clang-format" },
 	},
 	formatters = { --custom stuff for each formatter
 		stylua = {
