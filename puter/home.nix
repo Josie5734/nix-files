@@ -21,5 +21,6 @@
 		"${inputs.modules}/pico8/pico8.nix"
     "${inputs.modules}/love/love.nix"
 		"${inputs.modules}/zeditor/zeditor.nix"
+		"${inputs.modules}/programming/programming.nix"
 	];
 }

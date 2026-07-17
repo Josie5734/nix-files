@@ -15,7 +15,7 @@
     "show": true
   },
   "title_bar": {
-    "show_menus": false,
+    "show_menus": true,
     "show_user_picture": true,
     "show_user_menu": true,
     "show_sign_in": false,
