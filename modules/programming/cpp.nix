@@ -6,8 +6,9 @@
     cmake
     gnumake
     gdb
-    raylib
+    bear
     glfw
     pkg-config
   ];
+
 }

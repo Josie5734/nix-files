@@ -114,6 +114,8 @@
     fastfetch
     python3
     mullvad-vpn
+
+    direnv
   ];
 
   # Enable programs

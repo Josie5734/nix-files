@@ -7,6 +7,24 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  //use nix direnv
+  "search": {
+    "button": true
+  },
+  "languages": {
+    "C++": {
+      "format_on_save": "on"
+    }
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": false
+    }
+  },
+  "load_direnv": "shell_hook",
+  //
+  "colorize_brackets": true,
+  "always_treat_brackets_as_autoclosed": true,
   "proxy": "",
   "tabs": {
     "file_icons": true
@@ -25,10 +43,11 @@
     "button": true
   },
   "status_bar": {
+    "line_endings_button": false,
     "show_active_file": true
   },
   "prettier": {
-    "allowed": false
+    "allowed": true
   },
   "which_key": {
     "enabled": true
