@@ -41,10 +41,39 @@
     keyMap = "uk";
   };
 
+  #
+  #sway
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+  security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.swaylock = {};
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
+  };
+  services.seatd.enable = true;
+  services.greetd = {
+    enable = true;
+    settings.default_session = {
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+      user = "greeter";
+    };
+  };
+  fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
+  #sway
+  #
+
+  #
+  #xfce
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.lightdm.enable = true;
+  # services.xserver.desktopManager.xfce.enable = true;
+  #xfce
+  #
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "gb";
@@ -89,8 +118,13 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git 
     kitty
-
     direnv 
+
+    #sway
+    grim 
+    slurp
+    sway-contrib.grimshot
+    brightnessctl
   ];
 
   # Allow unfree packages

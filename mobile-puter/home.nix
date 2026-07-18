@@ -12,6 +12,7 @@
     xfce4-clipman-plugin
     xarchiver
     thunar-archive-plugin
+    xfce.thunar
 
     # other/general
     vlc
@@ -20,12 +21,12 @@
     pnpm
     nodejs
     steam-run
-    vscode
   ];
 
 	# import modules for each program
   # comment out to exclude them
 	imports = [
+    "${inputs.modules}/sway/sway.nix"
 	  "${inputs.modules}/zsh/zsh.nix"
   	"${inputs.modules}/neovim/neovim.nix"
 		"${inputs.modules}/kitty/kitty.nix"

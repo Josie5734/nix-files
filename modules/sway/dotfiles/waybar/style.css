@@ -1,0 +1,200 @@
+@import "mocha.css"; /* get catppuccin mocha colors */
+
+* {
+	font-family: JetBrains Mono Nerd Font;
+	font-size: 15px;
+  /* space between bar border and modules */
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/* settings for the bar */
+window#waybar {
+  border: 2px solid @mauve;
+	background-color: @base;
+	color: @text;
+}
+
+/* Left Modules */ 
+
+/* workspace stuff */
+#workspaces button {
+	padding: 0px 5px 0px 5px;
+  background-color: transparent;
+  border: 2px solid @mauve;
+	color: @text;
+  margin-left: 2px;
+}
+
+#workspaces button:hover {
+  background-color: @red;
+	color: @crust;
+}
+
+/* the current workspace */
+#workspaces button.focused {
+  background-color: @mauve;
+	color: @crust;
+}
+
+#workspaces button.active:hover {
+  background-color: @red;
+}
+/* scratchpad */ 
+#scratchpad {
+  padding: 0px 5px 0px 5px;
+  background-color: transparent;
+  border: 2px solid @mauve;
+  border-radius: 5px;
+	color: @text;
+}
+
+#mpris {
+	margin-left: 50px;
+	margin-right: 50px;
+	padding: 0px 5px 0px 5px;
+	background-color: transparent;
+	border: 2px solid @mauve;
+	border-radius: 5px;
+	color: @text;
+}
+
+/* Left Modules */ 
+
+
+
+/* Middle Modules */
+
+#idle_inhibitor.activated {
+  color: @green;
+}
+
+#idle_inhibitor.deactivated {
+  color: @red;
+}
+
+#keybidle {
+  margin-right: 10px;
+  padding-left: 5px;
+  border: 2px solid @mauve;
+  border-radius: 5px;
+}
+
+#keyboard-state label {
+  margin-left: 5px;
+  margin-right: -3px;
+  font-size: 20px;
+  color: @red;
+}
+
+
+/* clock stuff */
+#clock {
+  padding: 0px 5px 0px 5px;
+  background-color: @mauve;
+  border-radius: 5px;
+  color: @crust;
+}
+
+#pulseaudio {
+  margin-left: 10px;
+  padding: 0px 5px 0px 5px;
+  border: 2px solid @mauve;
+  border-radius: 5px;
+}
+
+/* Middle Modules */ 
+
+
+
+/* Right Modules */
+
+#network {
+  padding: 0px 0px 0px 5px;
+  border: 2px solid @mauve;
+  border-radius: 5px;
+  color: @green;
+  font-size: 20px;
+}
+
+#network.disconnected {
+  padding: 0px 10px 0px 3px;
+  border: 2px solid @mauve;
+  border-radius: 5px;
+  color: @red;
+  font-size: 20px;
+}
+
+#keyboard-state label.capslock.locked {
+  color: @green;
+}
+
+#backlight {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#battery.charging {
+  color: @green;
+}
+#battery.warning {
+  color: @yellow;
+}
+#battery.critical {
+  color: @red;
+}
+
+#laptop {
+  border: 2px solid @mauve;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#hardware {
+ border: 2px solid @mauve;
+ border-radius: 5px;
+ color: @text;
+ padding-left: 5px;
+ padding-right: 5px;
+}
+
+#custom-shutdown {
+  padding-left: 5px;
+  border: 2px solid @mauve;
+  border-radius: 5px 0px 0px 5px;
+}
+
+#custom-restart {
+  margin-right: 12px;
+  padding-right: 5px;
+  padding-left: 5px;
+  border: 2px solid @mauve;
+  border-radius: 0px 5px 5px 0px;
+}
+  
+/* Right Modules */ 
+
+
+
+/* Arch Power Modules */ 
+
+#custom-archleft {
+  margin-left: 10px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-right: -7px;
+  color: @mauve;
+  font-size: 25px;
+}
+
+#custom-archright {
+  margin-left: 2px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-right: 5px;
+  color: @mauve;
+  font-size: 25px;
+}
+
+/* Arch Power Modules */
