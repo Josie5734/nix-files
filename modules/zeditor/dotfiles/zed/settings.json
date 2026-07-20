@@ -11,6 +11,8 @@
   "search": {
     "button": true,
   },
+  //for TODO highlighting extention
+  "semantic_tokens": "combined",
   "languages": {
     "C++": {
       "preferred_line_length": 1000,
