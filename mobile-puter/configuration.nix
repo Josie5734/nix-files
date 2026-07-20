@@ -15,16 +15,22 @@
   # opengl/mesa acceleration
   hardware.graphics.enable = true;
 
+  # Configure network connections interactively with nmcli or nmtui.
+  networking.networkmanager.enable = true;
+
+  # Enable sound.
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+  };
+
   # enable bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true; # power adapter on startup
   services.blueman.enable = true; # install and enable blueman bluetooth manager
 
-  # define hostname
+  # define hostname (set in the flake)
   networking.hostName = hostname;
-
-  # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -39,15 +45,6 @@
   # Configure keymap
   services.xserver.xkb.layout = "gb";
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
@@ -58,7 +55,7 @@
     packages = with pkgs; [
       tree
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.zsh; # use zsh
   };
 
   # Allow unfree packages
@@ -75,16 +72,10 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     # base
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim
     git
     kitty
     direnv
-
-    #sway
-    grim
-    slurp
-    sway-contrib.grimshot
-    brightnessctl
   ];
 
   # Automatic garbage collection for old builds
@@ -98,6 +89,9 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
+
+  # Enable CUPS to print documents.
+  # services.printing.enable = true;
 
   # dont change this
   system.stateVersion = "26.05"; # Did you read the comment?
