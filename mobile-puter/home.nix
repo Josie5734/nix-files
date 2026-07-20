@@ -7,13 +7,10 @@
 
 	programs.home-manager.enable = true;
 
+	# TODO:
+	# deal with leftover xfce stuff
+	#
 	home.packages = with pkgs; [
-    # xfce/thunar extras
-    xfce4-clipman-plugin
-    xarchiver
-    thunar-archive-plugin
-    xfce.thunar
-
     # other/general
     vlc
     keepassxc

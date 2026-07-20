@@ -43,26 +43,40 @@
 
   #
   #sway
+  #
+
+  # enable sway
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
   };
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services.swaylock = {};
+  # not sure if this is needed, possibly autoenabled by enabling programs.sway
+  # security.pam.services.swaylock = {};
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
   };
   services.seatd.enable = true;
+
+  # greetd via tuigreet
   services.greetd = {
     enable = true;
     settings.default_session = {
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+      command = "${pkgs.tuigreet}/bin/tuigreet --remember --time --cmd sway";
       user = "greeter";
     };
   };
+
+  # install fonts
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
+
+  # thunar
+  services.gvfs.enable = true;  # enable drive mounting and stuff
+  programs.xfconf.enable = true; # saves thunar preferences like sidebar
+
+  #
   #sway
   #
 
@@ -103,6 +117,9 @@
     shell = pkgs.zsh;
   };
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # other programs
   programs.zsh.enable = true; # zsh shell
   services.mullvad-vpn.enable = true; # mullvad vpn (cli)
@@ -112,23 +129,19 @@
   };
 
   # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     # base
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git 
+    git
     kitty
-    direnv 
+    direnv
 
     #sway
-    grim 
+    grim
     slurp
     sway-contrib.grimshot
     brightnessctl
   ];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # Automatic garbage collection for old builds
   nix.gc = {
@@ -136,47 +149,13 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  # system.copySystemConfiguration = true;
-
-  # This option defines the first version of NixOS you have installed on this particular machine,
-  # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
-  #
-  # Most users should NEVER change this value after the initial install, for any reason,
-  # even if you've upgraded your system to a new NixOS release.
-  #
-  # This value does NOT affect the Nixpkgs version your packages and OS are pulled from,
-  # so changing it will NOT upgrade your system - see https://nixos.org/manual/nixos/stable/#sec-upgrading for how
-  # to actually do that.
-  #
-  # This value being lower than the current NixOS release does NOT mean your system is
-  # out of date, out of support, or vulnerable.
-  #
-  # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
-  # and migrated your data accordingly.
-  #
-  # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
+  # dont change this
   system.stateVersion = "26.05"; # Did you read the comment?
 
   nix.settings.experimental-features = [
@@ -185,4 +164,3 @@
   ];
 
 }
-

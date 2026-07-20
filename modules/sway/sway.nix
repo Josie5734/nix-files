@@ -1,7 +1,8 @@
 { config, pkgs, lib, ... }:
 
 {
-	home.packages = with pkgs; [
+  # install packages
+  home.packages = with pkgs; [
     waybar
     fuzzel
     swaynotificationcenter
@@ -19,4 +20,11 @@
 		value.source = config.lib.file.mkOutOfStoreSymlink (config.home.homeDirectory + "/nixos/modules/sway/dotfiles/${name}");
 
 	}) (builtins.attrNames (builtins.readDir ./dotfiles)));
+
+	# import individual modules for specific stuff
+	imports = [
+	  ./gtk.nix
+		./thunar.nix
+		./fuzzel.nix
+	];
 }
