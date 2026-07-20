@@ -16,7 +16,7 @@
 		./thunar.nix
 		./fuzzel.nix
 		./swaylock.nix
-		./waybar.nix
+		./waybar/waybar.nix
 		./mako.nix
 	];
 }
