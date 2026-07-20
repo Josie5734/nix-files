@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, lib, pkgs, hostname, ... }:
 
 {
@@ -17,22 +13,19 @@
   # opengl/mesa acceleration
   hardware.graphics.enable = true;
 
-  networking.hostName = hostname; # Define your hostname.
-
-  # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager.enable = true;
-
   # enable bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true; # power adapter on startup
   services.blueman.enable = true; # install and enable blueman bluetooth manager
 
+  # define hostname
+  networking.hostName = hostname;
+
+  # Configure network connections interactively with nmcli or nmtui.
+  networking.networkmanager.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/London";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -41,9 +34,12 @@
     keyMap = "uk";
   };
 
-  #
-  #sway
-  #
+  # Configure keymap
+  services.xserver.xkb.layout = "gb";
+
+  ########
+  # sway #
+  ########
 
   # enable sway
   programs.sway = {
@@ -52,8 +48,6 @@
   };
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
-  # not sure if this is needed, possibly autoenabled by enabling programs.sway
-  # security.pam.services.swaylock = {};
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
@@ -76,29 +70,14 @@
   services.gvfs.enable = true;  # enable drive mounting and stuff
   programs.xfconf.enable = true; # saves thunar preferences like sidebar
 
-  #
-  #sway
-  #
-
-  #
-  #xfce
-  # Enable the X11 windowing system.
-  # services.xserver.enable = true;
-  # services.xserver.displayManager.lightdm.enable = true;
-  # services.xserver.desktopManager.xfce.enable = true;
-  #xfce
-  #
-
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "gb";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+  ########
+  # sway #
+  ########
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
   # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
   services.pipewire = {
     enable = true;
     pulse.enable = true;

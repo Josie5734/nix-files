@@ -4,11 +4,11 @@
   # install packages
   home.packages = with pkgs; [
     waybar
-    swaynotificationcenter
     playerctl
     pwvucontrol
     swayidle
     swaybg
+    libnotify
 	];
 
 	# look at all config folders in /neovim/dotfiles and symlink them to ~/.config
@@ -25,5 +25,6 @@
 		./thunar.nix
 		./fuzzel.nix
 		./swaylock.nix
+		./mako.nix
 	];
 }
