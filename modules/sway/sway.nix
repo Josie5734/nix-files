@@ -4,11 +4,9 @@
   # install packages
   home.packages = with pkgs; [
     waybar
-    fuzzel
     swaynotificationcenter
     playerctl
     pwvucontrol
-    swaylock-effects
     swayidle
     swaybg
 	];
@@ -26,5 +24,6 @@
 	  ./gtk.nix
 		./thunar.nix
 		./fuzzel.nix
+		./swaylock.nix
 	];
 }
