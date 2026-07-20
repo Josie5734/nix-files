@@ -7,7 +7,16 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  //use nix direnv
+  "auto_install_extensions": {
+    "html": true,
+    "html-snippets": true,
+    "live-server": true,
+    "lua": true,
+    "todo-highlight-language-server": true,
+    "git-firefly": true,
+    "make": true,
+    "nix": true,
+  },
   "search": {
     "button": true,
   },
@@ -25,6 +34,7 @@
       "enabled": false,
     },
   },
+  //use nix direnv
   "load_direnv": "shell_hook",
   //
   "colorize_brackets": true,
