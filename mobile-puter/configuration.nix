@@ -1,9 +1,11 @@
-{ config, lib, pkgs, hostname, ... }:
+{ config, lib, pkgs, inputs, hostname, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # sway system config
+      "${inputs.modules}/sway/sway-configuration.nix"
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -36,43 +38,6 @@
 
   # Configure keymap
   services.xserver.xkb.layout = "gb";
-
-  ########
-  # sway #
-  ########
-
-  # enable sway
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-  security.polkit.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
-  };
-  services.seatd.enable = true;
-
-  # greetd via tuigreet
-  services.greetd = {
-    enable = true;
-    settings.default_session = {
-      command = "${pkgs.tuigreet}/bin/tuigreet --remember --time --cmd sway";
-      user = "greeter";
-    };
-  };
-
-  # install fonts
-  fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
-
-  # thunar
-  services.gvfs.enable = true;  # enable drive mounting and stuff
-  programs.xfconf.enable = true; # saves thunar preferences like sidebar
-
-  ########
-  # sway #
-  ########
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;

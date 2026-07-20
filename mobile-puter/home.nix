@@ -23,7 +23,7 @@
 	# import modules for each program
   # comment out to exclude them
 	imports = [
-    "${inputs.modules}/sway/sway.nix"
+    "${inputs.modules}/sway/sway-home.nix"
 	  "${inputs.modules}/zsh/zsh.nix"
   	"${inputs.modules}/neovim/neovim.nix"
 		"${inputs.modules}/kitty/kitty.nix"
