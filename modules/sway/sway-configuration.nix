@@ -12,7 +12,7 @@
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-wlr ];
   };
-  services.seatd.enable = true;
+  # services.seatd.enable = true;
 
   # greetd via tuigreet
   services.greetd = {

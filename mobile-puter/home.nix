@@ -10,7 +10,6 @@
 	home.packages = with pkgs; [
     # other/general
     vlc
-    keepassxc
     steam-run
   ];
 
