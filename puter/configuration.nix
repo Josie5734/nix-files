@@ -88,7 +88,7 @@
   users.users."josie" = {
     isNormalUser = true;
     description = "josie";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker"];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -96,7 +96,14 @@
     shell = pkgs.zsh;
   };
 
-
+  # docker
+  virtualisation.docker = {
+   enable = true;
+   storageDriver = "btrfs";
+   daemon.settings = {
+     data-root = "/home/josie/.docker/"; # store docker data
+   };
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -109,13 +116,16 @@
     git
     kitty
     keepassxc
+    direnv
 
     # extra stuff
     fastfetch
     python3
     mullvad-vpn
 
-    direnv
+    # docker
+    docker
+    docker-compose
   ];
 
   # Enable programs
